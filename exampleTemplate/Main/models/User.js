@@ -32,10 +32,16 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [8],
+        len: [8],   
       },
     },
+    role: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: 'user', // Optiions: 'user', 'admin', 'business_owner' 
+    },
   },
+  
   {
     hooks: {
       beforeCreate: async (newUserData) => {
