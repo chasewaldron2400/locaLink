@@ -17,21 +17,27 @@
         <a href="/">RootedBiz</a>
       </h1>
       <nav>
-        <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
         <a href="/profile">profile</a> |
+        <a href="/categories">categories</a> | <!-- New link for browsing by categories -->
         <button class="no-button" id="logout">logout</button>
         {{else}}
-        <a href="/login">login</a>
+        <a href="/login">login</a> |
+        <a href="/categories">browse businesses</a> <!-- Access to browse without logging in -->
         {{/if}}
       </nav>
     </header>
     <main class="container container-fluid mt-5">
       <!-- Render the sub layout -->
       {{{ body }}}
+      <!-- Additional section for featured businesses or top-rated ones -->
+      <section>
+        <h2>Featured Businesses</h2>
+        <!-- This would be dynamically filled with business data -->
+      </section>
     </main>
     <footer>
-      
+      <p>&copy; {{year}} RootedBiz - All rights reserved.</p>
     </footer>
   </div>
 
