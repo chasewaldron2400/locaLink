@@ -34,6 +34,10 @@ Project.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    category_id: {
+      type: DataTypes.ENUM('Restaurant', 'Retail', 'Service', 'Entertaiment'),
+      allowNull: false,
+    }
   },
   {
     sequelize,

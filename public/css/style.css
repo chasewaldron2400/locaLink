@@ -1,24 +1,62 @@
-header, .project:not(:last-child) {
-  border-bottom: 1px solid #ccc;
-}
 
-.no-button {
-  background: none;
-  border: none;
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
   padding: 0;
-  cursor: pointer;
-  color: #1b89bc;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+header .logo img {
+  height: 50px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li {
+  display: inline;
+}
+
+nav ul li a {
+  color: white;
   text-decoration: none;
-  font-size: 100%;
 }
 
-.no-button:hover {
-  color: #065b83;
-  text-decoration: underline;
+main {
+  text-align: center;
+  margin-top: 50px;
 }
 
-.dollar-amount {
-  color: #056605;
-  font-weight: bold;
-  margin-left: -5px;
+button, .button {
+  background-color: #007bff;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button:hover, .button:hover {
+  background-color: #0056b3;
+}
+
+.popup {
+  display: none; 
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }

@@ -1,24 +1,47 @@
-<!-- Loop over each object in the projects array -->
-{{#each projects as |project| }}
-<div class="row mb-4 project">
-  <div class="col-md-5">
-    <h2>
-      <!-- Call helper function with triple brackets to render the emoji span as HTML -->
-      {{{get_emoji}}}
-      <a href="/project/{{project.id}}">{{project.name}}</a>
-    </h2>
-    {{!-- <p>
-      <span for="img" aria-label="money">💲</span>
-      <!-- Pass needed_funding value to the helper function -->
-      <span class="dollar-amount">{{format_amount project.needed_funding}}</span>
-      needed!
-    </p> --}}
-    <p>Created by {{project.user.name}} on {{format_date project.date_created}}</p>
+{{!< main}}
+
+{{!-- Section for Search and Categories --}}
+<section class="search-and-categories">
+  <div class="search-box">
+    <input type="text" placeholder="Search for businesses..." aria-label="Search businesses">
+    <button type="submit">Search</button>
   </div>
-  <div class="col-md-7">
-    <p>
-      {{project.description}}
-    </p>
+  <div class="categories-list">
+    <h3>Explore by Category</h3>
+    <ul>
+      <li><a href="/category/restaurants">Restaurants</a></li>
+      <li><a href="/category/shops">Shops</a></li>
+      <li><a href="/category/services">Services</a></li>
+      <li><a href="/category/entertainment">Entertainment</a></li>
+    </ul>
   </div>
-</div>
-{{/each}}
+</section>
+
+{{!-- Featured Businesses --}}
+<section class="featured-businesses">
+  <h2>Featured Businesses</h2>
+  <div class="business-cards">
+    {{#each featured_businesses as |business|}}
+    <article class="business-card">
+      <img src="{{business.image}}" alt="{{business.name}} Logo">
+      <h4>{{business.name}}</h4>
+      <p>{{business.description}}</p>
+      <a href="/business/{{business.id}}">Learn more</a>
+    </article>
+    {{/each}}
+  </div>
+</section>
+
+{{!-- Latest Reviews --}}
+<section class="latest-reviews">
+  <h2>Latest Reviews</h2>
+  <div class="reviews">
+    {{#each reviews as |review|}}
+    <div class="review">
+      <strong>{{review.user}}</strong> on <em>{{review.business_name}}</em>
+      <blockquote>{{review.content}}</blockquote>
+      <div class="rating">Rating: {{review.rating}}/5</div>
+    </div>
+    {{/each}}
+  </div>
+</section>
